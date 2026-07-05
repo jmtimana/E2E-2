@@ -1,0 +1,17 @@
+import type { User } from "./user.type";
+
+type TripStatus = 'PENDING' | 'IN_PROGRESS' | 'COMPLETED';
+
+export interface Trip {
+  id: number;
+  status: TripStatus;
+  pickupAddress: string;
+  dropoffAddress: string;
+  requestedAt: string;       // ISO 8601
+  acceptedAt: string | null;
+  completedAt: string | null;
+  passenger: User;
+  driver: User | null;
+  passengerRating: number | null;
+  ratingComment: string | null;
+}
