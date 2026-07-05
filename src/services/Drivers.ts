@@ -36,7 +36,7 @@ export async function completeTrip(id: number): Promise<Trip> {
   return response.data;
 }
 
-export async function rateTrip(id: number, rating: number, comment: string): Promise<Trip> {
+export async function rateTrip(id: number, rating: number, comment?: string): Promise<Trip> {
   const response = await api.post<Trip>(`/trips/${id}/rate`, { rating, comment });
   return response.data;
 }
