@@ -1,6 +1,6 @@
 import type { User } from "./user.type";
 
-type TripStatus = 'PENDING' | 'IN_PROGRESS' | 'COMPLETED';
+export type TripStatus = 'PENDING' | 'IN_PROGRESS' | 'COMPLETED';
 
 export interface Trip {
   id: number;
