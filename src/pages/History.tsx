@@ -76,7 +76,7 @@ function History() {
               {filtered.map((trip) => (
                 <tr
                   key={trip.id}
-                  onClick={() => navigate(`/trips/${trip.id}`)}
+                  onClick={() => navigate(user.role === "DRIVER" ? `/driver/trips/${trip.id}` : `/trips/${trip.id}`)}
                   className="border-b border-gray-800 hover:bg-gray-800 cursor-pointer"
                 >
                   <td className="py-3 pr-4">{trip.id}</td>

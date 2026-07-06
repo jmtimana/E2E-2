@@ -5,6 +5,8 @@ import PassengerDashboard from "./pages/PassengerDashboard";
 import RequestTrip from "./pages/RequestTrip";
 import TripDetail from "./pages/TripDetail";
 import History from "./pages/History";
+import DriverDashboard from "./pages/DriverDashboard";
+import DriverTripDetail from "./pages/DriverTripDetail";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/passenger" element={<PassengerDashboard />} />
       <Route path="/passenger/request" element={<RequestTrip />} />
       <Route path="/trips/:id" element={<TripDetail />} />
+      <Route path="/driver" element={<DriverDashboard />} />
+      <Route path="/driver/trips/:id" element={<DriverTripDetail />} />
       <Route path="/history" element={<History />} />
     </Routes>
   );
