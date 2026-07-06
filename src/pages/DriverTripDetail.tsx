@@ -41,7 +41,7 @@ function DriverTripDetail() {
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-xl mx-auto">
         <button onClick={() => navigate("/driver")} className="text-blue-400 hover:underline mb-4 block">
-          &larr; Volver
+          Volver
         </button>
 
         <div className="flex items-center gap-3 mb-6">
@@ -93,14 +93,14 @@ function DriverTripDetail() {
 
         {trip.status === "COMPLETED" && (
           <div className="mt-6 bg-green-900/40 border border-green-600 p-4 rounded">
-            <p className="font-semibold text-green-400 mb-1">Viaje completado ✓</p>
+            <p className="font-semibold text-green-400 mb-1">Viaje completado</p>
             <p className="text-sm text-gray-300">
-              {trip.pickupAddress} → {trip.dropoffAddress}
+              {trip.pickupAddress} a {trip.dropoffAddress}
             </p>
             {trip.passengerRating != null && (
               <p className="text-sm text-yellow-400 mt-2">
-                Calificación del pasajero: {trip.passengerRating} ★
-                {trip.ratingComment ? ` — "${trip.ratingComment}"` : ""}
+                Calificacion del pasajero: {trip.passengerRating} estrellas
+                {trip.ratingComment ? ` - "${trip.ratingComment}"` : ""}
               </p>
             )}
           </div>

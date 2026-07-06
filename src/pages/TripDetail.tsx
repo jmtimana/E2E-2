@@ -20,7 +20,6 @@ function TripDetail() {
     getTripById(Number(id)).then(setTrip);
   }, [isAuthenticated, id]);
 
-  // Polling cada 4s mientras el viaje esté PENDING o IN_PROGRESS
   useEffect(() => {
     if (!id || !trip) return;
     if (trip.status !== "PENDING" && trip.status !== "IN_PROGRESS") return;
@@ -40,7 +39,7 @@ function TripDetail() {
       const updated = await rateTrip(trip.id, rating, comment || undefined);
       setTrip(updated);
     } catch {
-      setError("No se pudo enviar la calificación.");
+      setError("No se pudo enviar la calificacion.");
     }
   }
 
@@ -56,7 +55,7 @@ function TripDetail() {
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-xl mx-auto">
         <button onClick={() => navigate("/passenger")} className="text-blue-400 hover:underline mb-4 block">
-          &larr; Volver
+          Volver
         </button>
 
         <div className="flex items-center gap-3 mb-6">
@@ -84,7 +83,7 @@ function TripDetail() {
             <div>
               <p className="text-sm text-gray-400">Conductor</p>
               <p className="font-medium">
-                {trip.driver.firstName} {trip.driver.lastName} — {trip.driver.rating.toFixed(1)} ★
+                {trip.driver.firstName} {trip.driver.lastName} - {trip.driver.rating.toFixed(1)} estrellas
               </p>
             </div>
           ) : (
@@ -106,7 +105,6 @@ function TripDetail() {
           )}
         </div>
 
-        {/* Calificación: solo si está COMPLETED y aún sin rating */}
         {trip.status === "COMPLETED" && trip.passengerRating == null && (
           <form onSubmit={handleRate} className="mt-6 bg-gray-800 p-6 rounded flex flex-col gap-4">
             <h2 className="text-lg font-semibold">Califica tu viaje</h2>
@@ -117,9 +115,9 @@ function TripDetail() {
                   key={star}
                   type="button"
                   onClick={() => setRating(star)}
-                  className={`text-3xl ${star <= rating ? "text-yellow-400" : "text-gray-600"}`}
+                  className={`w-10 h-10 rounded font-bold ${star <= rating ? "bg-yellow-400 text-black" : "bg-gray-700 text-gray-300"}`}
                 >
-                  ★
+                  {star}
                 </button>
               ))}
             </div>
@@ -132,17 +130,16 @@ function TripDetail() {
                 rows={3}
               />
             </div>
-            <Button type="submit">Enviar calificación</Button>
+            <Button type="submit">Enviar calificacion</Button>
           </form>
         )}
 
-        {/* Resumen de calificación ya enviada */}
         {trip.passengerRating != null && (
           <div className="mt-6 bg-gray-800 p-6 rounded">
-            <p className="text-sm text-gray-400">Tu calificación</p>
+            <p className="text-sm text-gray-400">Tu calificacion</p>
             <p className="font-medium text-yellow-400">
-              {trip.passengerRating} ★
-              {trip.ratingComment ? ` — "${trip.ratingComment}"` : ""}
+              {trip.passengerRating} estrellas
+              {trip.ratingComment ? ` - "${trip.ratingComment}"` : ""}
             </p>
           </div>
         )}

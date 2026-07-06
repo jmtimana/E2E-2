@@ -36,14 +36,14 @@ function PassengerDashboard() {
             Historial
           </Button>
           <Button variant="secondary" onClick={logout}>
-            Cerrar sesión
+            Cerrar sesion
           </Button>
         </div>
       </div>
 
       <h2 className="text-xl font-semibold mb-4">Mis viajes</h2>
       {trips.length === 0 ? (
-        <p className="text-gray-400">Aún no tienes viajes.</p>
+        <p className="text-gray-400">Aun no tienes viajes.</p>
       ) : (
         <div className="flex flex-col gap-3">
           {trips.map((trip) => (
@@ -53,7 +53,7 @@ function PassengerDashboard() {
               onClick={() => navigate(`/trips/${trip.id}`)}
             >
               <div className="flex flex-col gap-1">
-                <p className="font-medium">{trip.pickupAddress} → {trip.dropoffAddress}</p>
+                <p className="font-medium">{trip.pickupAddress} a {trip.dropoffAddress}</p>
                 <p className="text-sm text-gray-400">
                   {new Date(trip.requestedAt).toLocaleDateString("es-PE", {
                     day: "numeric",

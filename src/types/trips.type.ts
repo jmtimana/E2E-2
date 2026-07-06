@@ -7,7 +7,7 @@ export interface Trip {
   status: TripStatus;
   pickupAddress: string;
   dropoffAddress: string;
-  requestedAt: string;       // ISO 8601
+  requestedAt: string;
   acceptedAt: string | null;
   completedAt: string | null;
   passenger: User;

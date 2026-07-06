@@ -40,7 +40,7 @@ function DriverDashboard() {
       await acceptTrip(id);
       navigate(`/driver/trips/${id}`);
     } catch {
-      setError("No se pudo aceptar el viaje. Puede que ya no esté disponible.");
+      setError("No se pudo aceptar el viaje, puede que ya no este disponible.");
     }
   }
 
@@ -50,14 +50,14 @@ function DriverDashboard() {
         <div>
           <h1 className="text-2xl font-bold">Bienvenido, {user.firstName}</h1>
           <p className="text-gray-400 text-sm">{user.email}</p>
-          <p className="text-yellow-400 text-sm mt-1">Tu rating: {user.rating.toFixed(1)} ★</p>
+          <p className="text-yellow-400 text-sm mt-1">Tu rating: {user.rating.toFixed(1)} estrellas</p>
         </div>
         <div className="flex gap-4">
           <Button variant="secondary" onClick={() => navigate("/history")}>
             Historial
           </Button>
           <Button variant="secondary" onClick={logout}>
-            Cerrar sesión
+            Cerrar sesion
           </Button>
         </div>
       </div>
@@ -71,7 +71,7 @@ function DriverDashboard() {
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
                 <p className="font-medium">
-                  {activeTrip.pickupAddress} → {activeTrip.dropoffAddress}
+                  {activeTrip.pickupAddress} a {activeTrip.dropoffAddress}
                 </p>
                 <StatusBadge status={activeTrip.status} />
               </div>
@@ -99,12 +99,12 @@ function DriverDashboard() {
               <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-3">
                   <p className="font-medium">
-                    {trip.pickupAddress} → {trip.dropoffAddress}
+                    {trip.pickupAddress} a {trip.dropoffAddress}
                   </p>
                   <StatusBadge status={trip.status} />
                 </div>
                 <p className="text-sm text-gray-400">
-                  Pasajero: {trip.passenger.firstName} {trip.passenger.lastName} ·{" "}
+                  Pasajero: {trip.passenger.firstName} {trip.passenger.lastName} -{" "}
                   {new Date(trip.requestedAt).toLocaleString("es-PE")}
                 </p>
               </div>

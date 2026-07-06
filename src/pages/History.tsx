@@ -32,13 +32,13 @@ function History() {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold">Historial de viajes</h1>
-          <p className="text-gray-400 text-sm">{user.firstName} {user.lastName} — {user.role === "DRIVER" ? "Conductor" : "Pasajero"}</p>
+          <p className="text-gray-400 text-sm">{user.firstName} {user.lastName} - {user.role === "DRIVER" ? "Conductor" : "Pasajero"}</p>
         </div>
         <div className="flex gap-4">
           <Button variant="secondary" onClick={() => navigate(user.role === "DRIVER" ? "/driver" : "/passenger")}>
             Dashboard
           </Button>
-          <Button variant="secondary" onClick={logout}>Cerrar sesión</Button>
+          <Button variant="secondary" onClick={logout}>Cerrar sesion</Button>
         </div>
       </div>
 
@@ -90,10 +90,10 @@ function History() {
                       ? `${trip.passenger.firstName} ${trip.passenger.lastName}`
                       : trip.driver
                         ? `${trip.driver.firstName} ${trip.driver.lastName}`
-                        : "—"}
+                        : "-"}
                   </td>
                   <td className="py-3 pr-4">
-                    {trip.passengerRating != null ? `${trip.passengerRating} ★` : "—"}
+                    {trip.passengerRating != null ? `${trip.passengerRating} estrellas` : "-"}
                   </td>
                   <td className="py-3">
                     <StatusBadge status={trip.status} />

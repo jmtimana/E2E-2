@@ -28,20 +28,20 @@ function Login() {
         navigate("/passenger");
       }
     } catch {
-      setError("Email o contraseña incorrectos");
+      setError("Email o contrasena incorrectos");
     }
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <form onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded flex flex-col gap-4 w-80">
-        <h1 className="text-white text-xl font-bold text-center">Iniciar sesión</h1>
+        <h1 className="text-white text-xl font-bold text-center">Iniciar sesion</h1>
         {error && <p className="text-red-400 text-sm">{error}</p>}
         <FormField label="Email" type="email" value={email} onChange={setEmail} required />
         <FormField label="Password" type="password" value={password} onChange={setPassword} required />
         <Button type="submit">Ingresar</Button>
         <Link to="/register" className="text-blue-400 text-sm text-center hover:underline">
-          ¿No tienes cuenta? Regístrate
+          No tienes cuenta? Registrate
         </Link>
       </form>
     </div>

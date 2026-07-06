@@ -38,7 +38,7 @@ function RequestTrip() {
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-2xl mx-auto">
         <button onClick={() => navigate("/passenger")} className="text-blue-400 hover:underline mb-4 block">
-          &larr; Volver al dashboard
+          Volver al dashboard
         </button>
         <h1 className="text-2xl font-bold mb-6">Solicitar viaje</h1>
 
@@ -51,7 +51,7 @@ function RequestTrip() {
               drivers.map((d) => (
                 <div key={d.id} className="bg-gray-800 p-3 rounded min-w-40 flex-shrink-0">
                   <p className="font-medium">{d.firstName} {d.lastName}</p>
-                  <p className="text-sm text-yellow-400">{d.rating.toFixed(1)} ★</p>
+                  <p className="text-sm text-yellow-400">{d.rating.toFixed(1)} estrellas</p>
                 </div>
               ))
             )}
@@ -61,8 +61,8 @@ function RequestTrip() {
         <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded flex flex-col gap-4">
           <h2 className="text-lg font-semibold">Detalles del viaje</h2>
           {error && <p className="text-red-400 text-sm">{error}</p>}
-          <FormField label="Dirección de recogida" value={pickup} onChange={setPickup} required />
-          <FormField label="Dirección de destino" value={dropoff} onChange={setDropoff} required />
+          <FormField label="Direccion de recogida" value={pickup} onChange={setPickup} required />
+          <FormField label="Direccion de destino" value={dropoff} onChange={setDropoff} required />
           <Button type="submit">Confirmar viaje</Button>
         </form>
       </div>

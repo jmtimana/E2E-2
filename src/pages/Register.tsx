@@ -59,7 +59,7 @@ function Register() {
         </div>
         <Button type="submit">Crear cuenta</Button>
         <Link to="/login" className="text-blue-400 text-sm text-center hover:underline">
-          ¿Ya tienes cuenta? Inicia sesión
+          Ya tienes cuenta? Inicia sesion
         </Link>
       </form>
     </div>
